@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grupo X — Projeto Equipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f9f9;
+      --surface: #ffffff;
+      --border: #e5e5e5;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #3b5bdb;
+      --accent-light: #eef2ff;
+      --radius: 10px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 80px 24px 64px;
+      text-align: center;
+    }
+
+    header .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    header p {
+      max-width: 560px;
+      margin: 0 auto 10px;
+      font-size: 1.05rem;
+      opacity: 0.88;
+    }
+
+    header .meta {
+      font-size: 0.85rem;
+      opacity: 0.65;
+      margin-top: 8px;
+    }
+
+    /* ── SEÇÕES ── */
+    .section {
+      max-width: 860px;
+      margin: 56px auto;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ── FUNCIONALIDADES ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+
+    .feature-card .icon {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── TIME ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+    }
+
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .member-card .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 2px solid var(--accent);
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      overflow: hidden;
+    }
+
+    .member-card .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member-card h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .member-card .role {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .member-card a {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .member-card a:hover { text-decoration: underline; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    .cta-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 7px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .btn:hover { opacity: 0.82; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--accent-light); color: var(--accent); }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SEÇÃO 1 — HERO (Membro 1 / Líder)
+     Edite: nome do app, proposta, público-alvo
+     ══════════════════════════════════════════ -->
+<header>
+  <div class="badge">Projeto — Grupo X</div>
+  <h1>Nome do Projeto / App</h1>
+  <p>Uma frase clara sobre o que esse projeto resolve e para quem ele foi feito.</p>
+  <p class="meta">Público-alvo: ??? · Problema: ???</p>
+</header>
+
+
+<!-- ══════════════════════════════════════════
+     SEÇÃO 2 — FUNCIONALIDADES (Membro 2)
+     Edite: ícone, título e descrição de cada card
+     Adicione ou remova .feature-card conforme necessário
+     ══════════════════════════════════════════ -->
+<section class="section">
+  <span class="section-title">Funcionalidades</span>
+  <div class="features">
+
+    <div class="feature-card">
+      <div class="icon">⚡</div>
+      <h3>Funcionalidade 1</h3>
+      <p>Breve descrição do que essa funcionalidade faz e como ajuda o usuário.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🔒</div>
+      <h3>Funcionalidade 2</h3>
+      <p>Breve descrição do que essa funcionalidade faz e como ajuda o usuário.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Funcionalidade 3</h3>
+      <p>Breve descrição do que essa funcionalidade faz e como ajuda o usuário.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="icon">🌐</div>
+      <h3>Funcionalidade 4</h3>
+      <p>Breve descrição do que essa funcionalidade faz e como ajuda o usuário.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SEÇÃO 3 — QUEM SOMOS (Membro 3)
+     Edite: emoji/foto, nome, cargo e link GitHub
+     Para usar foto: <img src="URL_DA_FOTO" alt="Nome" />
+     ══════════════════════════════════════════ -->
+<section class="section">
+  <span class="section-title">Quem Somos</span>
+  <div class="team-grid">
+
+    <div class="member-card">
+      <div class="avatar">🧑</div>
+      <h3>Nome Integrante 1</h3>
+      <div class="role">Líder · Full Stack</div>
+      <a href="https://github.com/usuario1" target="_blank">@usuario1</a>
+    </div>
+
+    <div class="member-card">
+      <div class="avatar">🧑</div>
+      <h3>Nome Integrante 2</h3>
+      <div class="role">Front-end</div>
+      <a href="https://github.com/usuario2" target="_blank">@usuario2</a>
+    </div>
+
+    <div class="member-card">
+      <div class="avatar">🧑</div>
+      <h3>Nome Integrante 3</h3>
+      <div class="role">Back-end</div>
+      <a href="https://github.com/usuario3" target="_blank">@usuario3</a>
+    </div>
+
+    <div class="member-card">
+      <div class="avatar">🧑</div>
+      <h3>Nome Integrante 4</h3>
+      <div class="role">Design / UX</div>
+      <a href="https://github.com/usuario4" target="_blank">@usuario4</a>
+    </div>
+
+    <div class="member-card">
+      <div class="avatar">🧑</div>
+      <h3>Nome Integrante 5</h3>
+      <div class="role">QA / Documentação</div>
+      <a href="https://github.com/usuario5" target="_blank">@usuario5</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     SEÇÃO 4 — CTA & CONTATO (Membro 4)
+     Edite: links do repositório, deploy e tecnologias
+     ══════════════════════════════════════════ -->
+<section class="section">
+  <span class="section-title">Links & Tecnologias</span>
+  <div class="cta-box">
+
+    <div class="cta-links">
+      <a class="btn btn-primary" href="https://github.com/usuario-lider/projeto-equipe-grupo-X" target="_blank">Ver Repositório</a>
+      <a class="btn btn-secondary" href="#" target="_blank">Acessar Demo</a>
+    </div>
+
+    <div class="tech-list">
+      <span class="tech-tag">HTML</span>
+      <span class="tech-tag">CSS</span>
+      <span class="tech-tag">JavaScript</span>
+      <span class="tech-tag">Git</span>
+      <span class="tech-tag">GitHub Pages</span>
+      <!-- Adicione mais tecnologias conforme necessário -->
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  Feito com 💙 pelo Grupo X &mdash; Desafio Prático Git &mdash; 2025
+</footer>
+
+</body>
+</html>
